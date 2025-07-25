@@ -7,10 +7,12 @@ import './index.css'
 const initialState = 0;
 
 const reducer = (state, action) => {
-  if (action.type === 'INC') {
-    return  state + 1;
+  switch (action.type) {
+    case "INC":
+      return state + 1;
+    default:
+      return state;
   }
-  return 0;
 }
 
 let state = reducer(initialState, {type: 'INC'});
