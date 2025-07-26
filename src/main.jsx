@@ -16,8 +16,12 @@ const update = () => {
 
 subscribe(update);
 
-const incDispatch = () => dispatch(inc());
-const decDispatch = () => dispatch(dec());
+const bindActionCreator = (creator, dispatch) => (...args) => {
+  dispatch(creator(...args));
+}
+
+const incDispatch = bindActionCreator(inc, dispatch);
+const decDispatch = bindActionCreator(dec, dispatch);
 const rndDispatch = (value) => dispatch(rnd(value));
 
 document.getElementById('inc').addEventListener('click', incDispatch)
