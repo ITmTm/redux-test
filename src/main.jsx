@@ -1,6 +1,6 @@
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
-import {createStore} from "redux";
+import {createStore, bindActionCreators} from "redux";
 
 import reducer from "./reducer.js";
 import {inc, dec, rnd} from "./actions.js"
@@ -20,9 +20,9 @@ const bindActionCreator = (creator, dispatch) => (...args) => {
   dispatch(creator(...args));
 }
 
-const incDispatch = bindActionCreator(inc, dispatch);
-const decDispatch = bindActionCreator(dec, dispatch);
-const rndDispatch = bindActionCreator(rnd, dispatch);
+const incDispatch = bindActionCreators(inc, dispatch);
+const decDispatch = bindActionCreators(dec, dispatch);
+const rndDispatch = bindActionCreators(rnd, dispatch);
 
 document.getElementById('inc').addEventListener('click', incDispatch)
 document.getElementById('dec').addEventListener('click', decDispatch)
