@@ -16,13 +16,12 @@ const update = () => {
 
 subscribe(update);
 
+const incDispatch = () => dispatch(inc());
+const decDispatch = () => dispatch(dec());
+const rndDispatch = () => dispatch(rnd());
 
-document.getElementById('inc').addEventListener('click', () => {
-  dispatch(inc());
-})
-document.getElementById('dec').addEventListener('click', () => {
-  dispatch(dec());
-})
+document.getElementById('inc').addEventListener('click', incDispatch)
+document.getElementById('dec').addEventListener('click', decDispatch)
 document.getElementById('rnd').addEventListener('click', () => {
   const value = Math.floor(Math.random() * 10);
   dispatch(rnd(value),);
