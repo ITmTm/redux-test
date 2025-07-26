@@ -22,7 +22,7 @@ const bindActionCreator = (creator, dispatch) => (...args) => {
 
 const incDispatch = bindActionCreator(inc, dispatch);
 const decDispatch = bindActionCreator(dec, dispatch);
-const rndDispatch = (value) => dispatch(rnd(value));
+const rndDispatch = bindActionCreator(rnd, dispatch);
 
 document.getElementById('inc').addEventListener('click', incDispatch)
 document.getElementById('dec').addEventListener('click', decDispatch)
